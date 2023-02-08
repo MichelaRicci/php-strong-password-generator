@@ -1,15 +1,14 @@
 <?php
 
 include 'functions.php';
+// session_start();
+// $_SESSION['newPassword'];
 
+// if(!empty($_GET['passwordLength'])){
+   
+//     header('Location: ./redirectPage.php');
 
-if(!empty($_GET['passwordLength'])){
-
-    session_start();
-
-    header('Location: ./redirectPage.php');
-
-}
+// }
    
 
 ?>
