@@ -11,6 +11,11 @@
     <title>Strong Password Generator</title>
 </head>
 <body>
+
+<form action="index.php">
+    <label for="password">Inserisci la lunghezza della password:</label>
+    <input name="password">
+</form>
     
 </body>
 </html>
