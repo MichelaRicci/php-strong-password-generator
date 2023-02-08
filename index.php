@@ -1,6 +1,16 @@
 <?php
 
-include 'functions.php'
+include 'functions.php';
+
+
+if(!empty($_GET['passwordLength'])){
+
+    session_start();
+
+    header('Location: ./redirectPage.php');
+
+}
+   
 
 ?>
 
