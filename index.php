@@ -1,5 +1,27 @@
 <?php
 
+function createPassword($characters_number) {
+
+$characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890!"$%&/()=?.';
+$newPassword = '';
+
+
+
+while(strlen($newPassword) < $characters_number) {
+    $random = $characters[rand(0, strlen($characters)-1)];
+    $newPassword .= $random;
+};
+
+return $newPassword;
+
+};
+
+    
+if (isset($_GET['passwordLength'])) {
+    $newPassword = createPassword($_GET['passwordLength']);
+};
+
+
 ?>
 
 <!DOCTYPE html>
@@ -8,14 +30,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>Strong Password Generator</title>
 </head>
 <body>
 
-<form action="index.php">
+<form action="index.php" method="GET">
     <label for="password">Inserisci la lunghezza della password:</label>
-    <input name="password">
+    <input name="passwordLength" type="number">
 </form>
+
+<?php if(isset($newPassword)){ ?>
+            <h4>
+                La tua password è: <?= $newPassword ?>
+            </h4>
+        <?php } ?>
     
 </body>
 </html>
+
+
