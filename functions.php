@@ -1,25 +1,27 @@
 <?php
 
-function createPassword($characters_number) {
+function createPassword($passwordLength) {
 
 $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890!"$%&/()=?.';
 $newPassword = '';
 
 
 
-while(strlen($newPassword) < $characters_number) {
+while(strlen($newPassword) < $passwordLength) {
     $random = $characters[rand(0, strlen($characters)-1)];
     $newPassword .= $random;
 };
 
-return $newPassword;
+
+
+session_start();
+
+$_SESSION['newPassword'] = ($newPassword);
+
+return true;
 
 };
 
-    
-if (isset($_GET['passwordLength'])) {
-    $newPassword = createPassword($_GET['passwordLength']);
-};
 
 
 ?>

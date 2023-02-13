@@ -1,14 +1,16 @@
 <?php
 
-include 'functions.php';
-// session_start();
-// $_SESSION['newPassword'];
+require __DIR__ . '/functions.php';
 
-// if(!empty($_GET['passwordLength'])){
-   
-//     header('Location: ./redirectPage.php');
 
-// }
+if(isset($_GET['passwordLength'])){
+
+    $newPassword = createPassword($_GET['passwordLength']);
+
+    if ($newPassword === true) header('Location: redirectPage.php');
+
+}
+
    
 
 ?>
@@ -31,7 +33,7 @@ include 'functions.php';
 
 <?php if(isset($newPassword)){ ?>
             <h4>
-                La tua password è: <?= $newPassword ?>
+                La tua password è: <strong><?= $newPassword ?></strong>
             </h4>
         <?php } ?>
     
