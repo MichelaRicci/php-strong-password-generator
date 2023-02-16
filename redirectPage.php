@@ -2,7 +2,7 @@
 
 
     session_start();
-    if(empty($_SESSION['passwordLength'])) {
+    if(empty($_SESSION['newPassword'])) {
         header('Location: index.php');
     }
 ?>
